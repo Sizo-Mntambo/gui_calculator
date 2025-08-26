@@ -11,15 +11,18 @@ def add_to_calculation(symbol):
 def evaluate_calculation():
     global calculation
     try:
-        result = str(eval(calculation))
-        calculation = ""
+        calculation = str(eval(calculation))        
         text_result.delete(1.0, tk.END)
         text_result.insert(1.0, result)
     except:
-        pass
+        clear_field()
+        text_result.insert(1.0, "ERROR")
+        
 
 def clear_field():
-    pass
+    global calculation
+    calculation = ""
+    text_result.delete(1.0, tk.END)
 
 root = tk.Tk()
 root.geometry("300x300")
