@@ -58,8 +58,3 @@ Roadmap:
 - 🧮 Scientific extensions (sin, cos, log)
 - 🌗 Theme options (light/dark)
 
-License:
-- MIT
-
-Credits:
-- Your Name 🙌
