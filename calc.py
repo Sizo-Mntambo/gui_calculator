@@ -11,9 +11,9 @@ def add_to_calculation(symbol):
 def evaluate_calculation():
     global calculation
     try:
-        calculation = str(eval(calculation))        
+        calculation = str(eval(calculation))
         text_result.delete(1.0, tk.END)
-        text_result.insert(1.0, result)
+        text_result.insert(1.0, calculation)
     except:
         clear_field()
         text_result.insert(1.0, "ERROR")
@@ -27,7 +27,7 @@ def clear_field():
 root = tk.Tk()
 root.geometry("300x300")
 text_result = tk.Text(root, height=2, width=16, font=("Arial", 24))
-text_result.grid(columnspan=5)
+text_result.grid(columnspan=7)
 
 button1 = tk.Button(root, text="1", command=lambda: add_to_calculation(1), width=5, font=("Arial", 14))
 button1.grid(row=2, column=1)
@@ -47,10 +47,21 @@ button8 = tk.Button(root, text="8", command=lambda: add_to_calculation(8), width
 button8.grid(row=4, column=2)
 button9 = tk.Button(root, text="9", command=lambda: add_to_calculation(9), width=5, font=("Arial", 14))
 button9.grid(row=4, column=3)
-button0 = tk.Button(root, text="0", command=lambda: add_to_calculation(0), width=11, font=("Arial", 14))
-button0.grid(row=5, column=1, columnspan=2)
+button0 = tk.Button(root, text="0", command=lambda: add_to_calculation(0), width=5, font=("Arial", 14))
+button0.grid(row=5, column=1)
+button_equal = tk.Button(root, text="=", command=lambda: evaluate_calculation(), width=24, font=("Arial", 14))
+button_equal.grid(row=6, column=2, columnspan=4)
 button_plus = tk.Button(root, text="+", command=lambda: add_to_calculation("+"), width=5, font=("Arial", 14))
 button_plus.grid(row=2, column=4)
-
+button_minus = tk.Button(root, text="-", command=lambda: add_to_calculation("-"), width=5, font=("Arial", 14))
+button_minus.grid(row=3, column=4)
+button_multiply = tk.Button(root, text="*", command=lambda: add_to_calculation("*"), width=5, font=("Arial", 14))
+button_multiply.grid(row=4, column=4)
+button_divide = tk.Button(root, text="/", command=lambda: add_to_calculation("/"), width=5, font=("Arial", 14))
+button_divide.grid(row=5, column=4)
+button_bracket_open = tk.Button(root, text="(", command=lambda: add_to_calculation("("), width=5, font=("Arial", 14))
+button_bracket_open.grid(row=5, column=2)
+button_bracket_close = tk.Button(root, text=")", command=lambda: add_to_calculation(")"), width=5, font=("Arial", 14))
+button_bracket_close.grid(row=5, column=3)
 
 root.mainloop()
