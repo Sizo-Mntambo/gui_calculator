@@ -3,7 +3,10 @@ import tkinter as tk
 calculation = ""
 
 def add_to_calculation(symbol):
-    pass
+    global calculation
+    calculation += str(symbol)
+    text_result.delete(1.0, tk.END)
+    text_result.insert(tk.END, calculation)
 
 def evaluate_calculation():
     pass
@@ -14,5 +17,5 @@ def clear_field():
 root = tk.Tk()
 root.geometry("300x300")
 text_result = tk.Text(root, height=2, width=16, font=("Arial", 24))
-text_result.grid(columnspan=3)
+text_result.grid(columnspan=5)
 root.mainloop()
