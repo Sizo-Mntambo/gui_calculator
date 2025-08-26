@@ -6,10 +6,17 @@ def add_to_calculation(symbol):
     global calculation
     calculation += str(symbol)
     text_result.delete(1.0, tk.END)
-    text_result.insert(tk.END, calculation)
+    text_result.insert(1.0, calculation)
 
 def evaluate_calculation():
-    pass
+    global calculation
+    try:
+        result = str(eval(calculation))
+        calculation = ""
+        text_result.delete(1.0, tk.END)
+        text_result.insert(1.0, result)
+    except:
+        pass
 
 def clear_field():
     pass
